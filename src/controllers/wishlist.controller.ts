@@ -22,7 +22,7 @@ export const removeFromWishList = async (req: Request, res: Response) => {
 export const getUsersWishList = async (req: Request, res: Response) => {
   try {
     const results = await WishListModel.find().populate("itemId");
-    res.send(200).json({ data: results });
+    res.status(200).json({ data: results });
   } catch (err) {
     res.status(500).json({ error: err });
   }
@@ -33,7 +33,7 @@ export const getWishListItem = async (req: Request, res: Response) => {
     const results = await WishListModel.findOne({
       _id: req.params.id,
     }).populate("itemId");
-    res.send(200).json({ data: results });
+    res.status(200).json({ data: results });
   } catch (err) {
     res.status(500).json({ error: err });
   }

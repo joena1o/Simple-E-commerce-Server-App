@@ -19,7 +19,7 @@ export const uploadImage = async (req: Request, res: Response) => {
      const multerReq = req as MulterRequest;                  
     // Upload image to Cloudinary
     const result = await cloudinaryV2.uploader.upload(multerReq.file.path, {
-      folder: "folder_name",
+      folder: "my_images",
     });
     // Send the Cloudinary URL in the response
     res.json({ imageUrl: result.secure_url });

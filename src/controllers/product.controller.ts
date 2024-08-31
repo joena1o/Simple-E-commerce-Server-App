@@ -1,4 +1,4 @@
-import ProductModel from "../models/upload_product_model";
+import ProductModel from "../models/product_model";
 import { Request, Response } from "express";
 
 export const uploadProduct = async (req: Request, res: Response) => {
