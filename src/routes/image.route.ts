@@ -1,9 +1,10 @@
 import { Router } from "express";
-import multerConfig from '../utils/multer_config';
-import {uploadImage} from "../controllers/image.controller";
+import multer_upload from '../multer_config'
+import uploadImage from "../controllers/image.controller";
 
 const router = Router();
 
-router.post("/upload-image", multerConfig.single('file'), uploadImage);
+router.post('/upload-image', multer_upload.array('image'), uploadImage);
+
 
 export default router;
