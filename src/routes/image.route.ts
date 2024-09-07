@@ -6,5 +6,4 @@ const router = Router();
 
 router.post('/upload-image', multer_upload.array('image'), uploadImage);
 
-
 export default router;
