@@ -18,12 +18,12 @@ app.use(express.json());
 
 connectToDb();
 
-app.use("/image", ImageRoute);
+app.use("/image", authenticateToken, ImageRoute);
 app.use("/user", UserRoute);
-app.use("/banner", BannerRoute);
-app.use("/product", ProductRoute);
-app.use("/wishlist", WishListRoute);
-app.use('/cart', CartRoute);
+app.use("/banner", authenticateToken, BannerRoute);
+app.use("/product", authenticateToken, ProductRoute);
+app.use("/wishlist", authenticateToken, WishListRoute);
+app.use('/cart', authenticateToken, CartRoute);
 
 app.get("/", (req, res) => {
   res.send("Hello, TypeScript with Express!");
